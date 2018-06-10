@@ -1,0 +1,192 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-image: url(images/bg.jpg);
+	background-size: cover;
+}
+header {
+	height: 70px;
+	background-color: #2B7DAD;
+	font-family: "宋体";
+	color: white;
+}
+a {
+	text-decoration: none;				
+}
+a:link {
+	color: white;
+}
+a:visited {
+	color: white;
+}
+a:hover {
+	color: red;
+}
+.quit:hover {
+	color: blue;
+	background-color: #F27532;
+}
+a.teacherInfo:hover {
+	background-color: green;
+}
+header.left {
+	float: left;
+}
+header.right {
+	float: right;
+}
+header img {
+	display: inline-block;
+	float: left;
+}
+h5 {
+	display: inline-block;
+	line-height: 70px;
+	margin-left: 30px;
+	font-size: 19px;
+	float: left;
+}
+ul {
+	list-style: none;
+}
+header a {
+	display: inline-block;
+	float: right;
+	line-height: 70px;
+	margin-left: 20px;
+	padding: 0 10px;
+}
+.welcome {
+	width: 392px;
+	height: 49px;
+	background-image: url(images/welcome.png);
+	margin-top: 40px;
+	margin-left: 156px;
+	line-height: 40px;
+	font-size: 19px;
+	color: white;
+	text-align: center;
+}
+article {
+	overflow: hidden;
+	height: 504px;
+}
+article nav {
+	height: 100%;
+	width: 215px;
+	border-right: 3px solid black;
+	float: left;
+}
+.nav a {
+	display: block;
+	width: 100%;
+	font-size: 22px;
+	font-family: "宋体";
+	text-align: center;
+	height: 70px;
+	line-height: 70px;
+	background-color: rgb(71,107,142);
+	margin-top: 45px;
+	
+}
+article section {
+	height: 100%;
+	width: 1000px;
+	float: right;
+}
+div.teacherInfo {
+	width: 500px;
+	margin: 40px auto;
+	list-style: none;
+	font-size: 19px;
+	font-family: "宋体";
+	font-weight: bold;
+	color: rgb(0,0,0);
+}
+p.teachCount {
+	margin-top: 28px;
+	margin-left: 231px;
+	height: 30px;
+	font-size: 19px;
+	color: white;
+	font-family: "宋体";
+}
+li {
+	width: 500px;
+	margin: 25px;
+}
+table {
+	background-color: rgba(255,255,255,0.2);
+	width: 600px;
+	border-collapse:collapse;
+	font-size: 19px;
+	text-align: center;
+	border: 2px solid black;
+}
+table.teaching {
+	margin-top: 29px;
+	margin-left: 56px;
+}
+table.teachinggrade {
+	margin-top: 21px;
+	margin-left: 54px;
+}
+th, td
+{
+	height: 40px;
+	border: 1px solid blue;
+}
+div.updatepassword{
+	margin-top: 111px;
+	margin-left: 54px;
+	width: 500px;
+	list-style: none;
+	font-family: "宋体";
+	font-weight: bold;
+	color: white;
+}
+input[type=submit] {
+	display: block;
+	margin: 15px 250px;
+	width: 90px;
+	height: 35px;
+	font-size: 19px;
+	background-color: #5CB85C;
+	color: white;
+	border: 1px solid #4CAE4C;
+	cursor:pointer;
+	border-radius: 3px;
+}
+.err {
+	color: black;
+	height: 30px;
+	width: 500px;
+	font-size: 19px;
+	line-height: 25px;
+	margin: 10px 247px;
+}
+.upload {
+	margin-top: 18px;
+	margin-left: 295px;
+	text-align: center;
+	display: block;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 19px;
+	background-color: orange;
+	border-radius: 3px;
+}
+.updatepassword table,
+.updatepassword td {
+	border: 0;
+}
+.update a {
+	color: red;
+}
+.update a:hover {
+	color: black;
+	background-color: red;
+}
