@@ -1,0 +1,13 @@
+git log
+git reflog
+git reset --hard commit_id/head^^^^
+git checkout -- 文件名     撤销文件在工作区的修改
+git reset head file  把暂存区的修改撤销掉
+即：
+	对文件作了修改，如果没有提交到暂存区（git add），那么直接用checkout就恢复）
+	对文件做了修改，已经git add了，那么先git reset head file，再checkout就行了
+	对文件做了修改，甚至已经commit了，那么版本回退
+git checkout -- file 其实是用版本库里的文件，替换工作区的文件，无论是删除或者是修改都是一样的
+手动删除文件，那么确认删除就用git rm file再加上git commit
+删除文件可以直接git rm file，这样文件夹里的文件自动删除，然后commit就行了
+只要git rm file后，想恢复就只能用版本回退了
