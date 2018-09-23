@@ -1,0 +1,123 @@
+body {
+	background-image: url(../images/login-bg.jpg);
+	background-size: cover;
+}
+
+.slide-line {
+	position: absolute;
+	width: 1px;
+	height: 500px;
+	background-color: #ccc;
+	top: 50px;
+	left: 650px;
+}
+
+.login-part {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	height: 500px;
+}
+
+.top {
+	margin-top: 50px;
+}
+
+.row hr {
+	border: 1px solid #ccc;
+}
+
+.footer a {
+	color: black;
+}
+
+.footer a:hover {
+	color: red;
+	text-decoration: none;
+}
+
+h3 {
+	color: #4d5e73;
+}
+
+.login-part
+ 
+input
+:not
+ 
+(
+[
+type
+=
+checkbox
+]
+ 
+)
+{
+height
+:
+ 
+50
+px
+;
+
+	
+font-size
+:
+ 
+20
+px
+;
+
+
+}
+.login-part .form-group {
+	margin: 35px 0;
+}
+
+input[type=checkbox] {
+	height: 18px;
+	width: 18px;
+}
+
+label {
+	line-height: 25px;
+}
+
+.forget {
+	line-height: 45px;
+}
+
+.forget:hover {
+	color: red;
+}
+
+.login-part .select {
+	margin-top: -27px;
+}
+
+.noaccount {
+	color: #666666;
+	font-size: 16px;
+}
+
+a.register {
+	color: #428bca;
+	font-size: 16px;
+}
+
+a.register:hover {
+	color: red;
+}
+
+#code-img {
+	width: 84px;
+	height: 36px;
+}
+
+.login-msg {
+	position: absolute;
+	color: red;
+	font-size: 16px;
+	left: 17px;
+	top: 57px;
+}

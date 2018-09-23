@@ -1,0 +1,262 @@
+body {
+	background-color: rgb(245, 246, 247);
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	line-height: 50px;
+}
+
+.top {
+	background-color: #F8F8F8;
+	height: 50px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.top-nav li {
+	float: left;
+}
+
+.top-nav li a {
+	font-size: 16px;
+	line-height: 50px;
+	padding: 18px;
+}
+
+.content {
+	background-color: white;
+	margin-top: 30px;
+}
+
+.aside-nav {
+	width: 180px;
+}
+
+.aside-nav ul {
+	width: 180px;
+	border-right: 1px solid #CCCCCC;
+	margin-left: -15px;
+}
+
+.aside-nav ul li {
+	width: 180px;
+	height: 35px;
+}
+
+.aside-nav a {
+	display: block;
+	width: 180px;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	color: #4d4d4d;
+	padding-left: 10px;
+}
+
+.aside-nav a:hover {
+	background-color: pink;
+	color: red;
+}
+
+.content .title {
+	height: 90px;
+	border-bottom: 1px solid #CCCCCC;
+	color: black;
+	font: normal bold 20px/90px arial;
+	margin-bottom: 30px;
+}
+
+.aside-content {
+	margin-left: 30px;
+}
+
+.aside-content .head-img {
+	padding: 2px;
+	border: 1px solid #CCCCCC;
+}
+
+.aside-content .focus {
+	font-size: 16px;
+	margin-top: 24px;
+}
+
+.aside-content .focus .data-left, .aside-content .focus .data-right {
+	float: left;
+	width: 40px;
+	height: 49px;
+}
+
+.aside-content .focus .data-left {
+	border-right: 1px solid #CCCCCC;
+	margin-right: 15px;
+}
+
+.aside-content h1 {
+	font-size: 30px;
+}
+
+.aside-content h1 a {
+	color: black;
+}
+
+.aside-content h1 {
+	margin-top: -20px;
+}
+
+.aside-content a:hover {
+	text-decoration: underline;
+}
+
+.aside-content button {
+	margin: 10px 0 0 38px;
+}
+
+.aside-content .img-side {
+	margin: 37px 0 0 29px;
+}
+
+.personInfo {
+	padding-left: 32px;
+	font-size: 20px;
+	font-family: arial;
+}
+
+.personInfo div {
+	margin: 10px 0;
+}
+
+.row hr {
+	height: 0;
+	border: 1px solid #CCCCCC;
+	outline: none;
+}
+
+#upload-bg {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.65);
+}
+
+#upload-wrap {
+	width: 500px;
+	height: 400px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-color: white;
+	transform: translateX(-250px) translateY(-200px);
+}
+
+#upload-wrap #add {
+	display: block;
+	position: absolute;
+	cursor: pointer;
+	padding: 2px;
+	border: 2px solid #CCCCCC;
+	height: 208px;
+	width: 208px;
+}
+
+#upload-wrap #add:hover {
+	border: 2px dashed #ccc;
+}
+
+#upload-wrap .upload-content {
+	margin: 50px 0 0 100px;
+}
+
+#img-btn {
+	display: none;
+	margin: 230px 0 0 20px;
+}
+
+#showUpload {
+	display: none;
+}
+
+#upload-close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	color: #4d4d4d;
+}
+
+#modifyInfo-bg {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.65);
+}
+
+#modifyInfo-wrap {
+	overflow: hidden;
+	width: 500px;
+	height: 450px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-color: white;
+	transform: translateX(-250px) translateY(-225px);
+}
+
+#modifyInfo-wrap .top {
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	background-color: #F8F8F8;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#modifyInfo-wrap .top p {
+	position: absolute;
+	left: 20px;
+}
+
+#modifyInfo-wrap .top span {
+	position: absolute;
+	right: 10px;
+	top: 17px;
+}
+
+#modifyInfo-wrap .container {
+	margin-top: 30px;
+	padding-left: 50px;
+}
+
+#modifyInfo-wrap .row {
+	font-size: 16px;
+}
+
+#modifyInfo-wrap input,
+#modifyInfo-wrap select {
+	width: 350px;
+	height: 30px;
+	padding-left: 5px;
+	margin: 5px;
+}
+
+#modifyInfo-wrap .info-btn {
+	margin: 20px 0 0 130px;
+}
+
+.info-btn button:first-child {
+	margin-right: 35px;
+}

@@ -1,0 +1,75 @@
+@charset "utf-8";
+.top {
+	height: 70px;
+	background-color: #283E5C;
+	border: 2px solid #e7e7e7;
+	color: white;
+}
+
+.top .row {
+	line-height: 70px;
+}
+
+.content .register {
+	font-size: 20px;
+	border-bottom: 1px solid black;
+	margin-top: 50px;
+}
+
+.content form {
+	margin-top: 50px;
+	margin-left: -30px;
+	font-size: 16px;
+}
+
+.content .slide-line {
+	width: 1px;
+	height: 268px;
+	background-color: black;
+	position: absolute;
+	left: 700px;
+	top: 200px;
+}
+
+.container hr {
+	border: none;
+	height: 1px;
+	background-color: black;
+}
+
+a:hover {
+	text-decoration: none;
+	color: orange;
+}
+
+a {
+	color: white;
+}
+
+.form-group {
+	padding-bottom: 10px;
+	position: relative;
+}
+
+div.msg {
+	width: 200px;
+	height: 20px;
+	line-height: 20px;
+	color: red;
+	position: absolute;
+	left: 372px;
+	top: 36px;
+	font-size: 12px;
+}
+div.msg:nth-child(2) {
+	left: 172px;
+}
+
+.slideImg {
+	position: absolute;
+	right: 200px;
+	top: 198px;
+}
+#phone + span {
+	right: 0;
+}
