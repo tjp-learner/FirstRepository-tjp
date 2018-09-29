@@ -37,14 +37,14 @@ public class UserFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-
+		
 		// 强转
 		HttpServletRequest req = (HttpServletRequest) request;
 		String uid = (String) req.getSession().getAttribute("uid");
 		UserDao dao = new UserDao();
 		User user = dao.getUserById(uid);
 		if (user != null) {
-			req.getSession().setAttribute("user", user);
+			request.setAttribute("user", user);
 		}
 		chain.doFilter(request, response);
 	}

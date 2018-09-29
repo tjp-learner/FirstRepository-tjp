@@ -2,12 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>blog</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>home.html</welcome-file>
   </welcome-file-list>
   <filter>
     <filter-name>EncodeFilter</filter-name>
@@ -17,9 +12,14 @@
     <filter-name>EncodeFilter</filter-name>
     <servlet-name>UserCheckServlet</servlet-name>
     <servlet-name>UserServlet</servlet-name>
+    <servlet-name>UpdateUserInfoServlet</servlet-name>
+    <servlet-name>UeditorServlet</servlet-name>
+    <servlet-name>ArticleServlet</servlet-name>
     <servlet-name>home</servlet-name>
     <servlet-name>person</servlet-name>
     <servlet-name>login</servlet-name>
+    <servlet-name>myblog</servlet-name>
+    <servlet-name>write-blog</servlet-name>
   </filter-mapping>
   <filter>
     <display-name>AutoLoginFilter</display-name>
@@ -30,6 +30,13 @@
     <filter-name>AutoLoginFilter</filter-name>
     <servlet-name>login</servlet-name>
     <servlet-name>person</servlet-name>
+    <servlet-name>myblog</servlet-name>
+    <servlet-name>write-blog</servlet-name>
+    <servlet-name>BlogServlet</servlet-name>
+    <servlet-name>GetFocusServlet</servlet-name>
+    <servlet-name>AttentionServlet</servlet-name>
+    <servlet-name>CommentServlet</servlet-name>
+    <servlet-name>ArticleServlet</servlet-name>
   </filter-mapping>
   <filter>
     <display-name>UserFilter</display-name>
@@ -39,6 +46,14 @@
   <filter-mapping>
     <filter-name>UserFilter</filter-name>
     <servlet-name>person</servlet-name>
+  </filter-mapping>
+  <filter>
+    <display-name>ArticleFilter</display-name>
+    <filter-name>ArticleFilter</filter-name>
+    <filter-class>com.tjp.filter.ArticleFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ArticleFilter</filter-name>
     <servlet-name>home</servlet-name>
   </filter-mapping>
   <servlet>
@@ -90,6 +105,22 @@
     <url-pattern>/person.html</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>article</servlet-name>
+    <jsp-file>/article.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>article</servlet-name>
+    <url-pattern>/article.html</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>myblog</servlet-name>
+    <jsp-file>/myblog-article.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>myblog</servlet-name>
+    <url-pattern>/myblog-article.html</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>UploadImgServlet</servlet-name>
     <servlet-class>com.tjp.servlet.UploadImgServlet</servlet-class>
   </servlet>
@@ -104,5 +135,81 @@
   <servlet-mapping>
     <servlet-name>GetImgServlet</servlet-name>
     <url-pattern>/getImage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateUserInfoServlet</servlet-name>
+    <servlet-class>com.tjp.servlet.UpdateUserInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUserInfoServlet</servlet-name>
+    <url-pattern>/UpdateUserInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UeditorServlet</display-name>
+    <servlet-name>UeditorServlet</servlet-name>
+    <servlet-class>com.tjp.servlet.UeditorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UeditorServlet</servlet-name>
+    <url-pattern>/UeditorServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ArticleServlet</display-name>
+    <servlet-name>ArticleServlet</servlet-name>
+    <servlet-class>com.tjp.servlet.ArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArticleServlet</servlet-name>
+    <url-pattern>/ArticleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BlogServlet</display-name>
+    <servlet-name>BlogServlet</servlet-name>
+    <servlet-class>com.tjp.servlet.BlogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BlogServlet</servlet-name>
+    <url-pattern>/myblog-data.html</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>write-blog</servlet-name>
+    <jsp-file>/write-blog.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>write-blog</servlet-name>
+    <url-pattern>/write-blog.html</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CommentServlet</display-name>
+    <servlet-name>CommentServlet</servlet-name>
+    <servlet-class>com.tjp.servlet.CommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommentServlet</servlet-name>
+    <url-pattern>/CommentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AttentionServlet</display-name>
+    <servlet-name>AttentionServlet</servlet-name>
+    <servlet-class>com.tjp.servlet.AttentionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AttentionServlet</servlet-name>
+    <url-pattern>/AttentionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetFocusServlet</display-name>
+    <servlet-name>GetFocusServlet</servlet-name>
+    <servlet-class>com.tjp.servlet.GetFocusServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetFocusServlet</servlet-name>
+    <url-pattern>/GetFocusServlet</url-pattern>
   </servlet-mapping>
 </web-app>

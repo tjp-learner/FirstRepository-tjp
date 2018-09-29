@@ -40,31 +40,33 @@ public class AutoLoginFilter implements Filter {
 			throws IOException, ServletException {
 
 		/*
-		 * 自动登录过滤器要完成的功能： 如果用户登录了（session中有uid），如果访问登录页面就跳转到首页home.html
-		 * 如果用户没有登录，那么看是否有自动登录的cookie 有cookie，那么帮助自动登录，如果访问登录页面就跳转到首页home.html
+		 * 自动登录过滤器要完成的功能： 如果用户登录了（session中有uid），如果访问登录页面就跳转到首页/
+		 * 如果用户没有登录，那么看是否有自动登录的cookie 有cookie，那么帮助自动登录，如果访问登录页面就跳转到首页/
 		 * 没有cookie，访问登录界面不用跳转，访问其他过滤的界面均跳转到登录界面
 		 */
 		System.out.println("自动登录过滤器");
 		// 强转
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
+		String filterUrl = "myblog-article.html,myblog-data.html,person.html,write-blog.html，myblog-data.html";
+		String url = req.getRequestURI();
+		url = url.substring(url.lastIndexOf("/") + 1);
+		System.out.println("请求路径" + url);
 		String uid = (String) req.getSession().getAttribute("uid");
 		if (uid != null) {
 			// 登录了
-			String url = req.getRequestURI();
-			if (url.endsWith("login.html")) {
-				chain.doFilter(request, response);
-				res.sendRedirect("home.html");
+			if (url.equals("login.html")) {
+				res.sendRedirect("/");
 				return;
-			}
+			} 
 		} else {
 			// 没有登录
 			// 读取cookie
 			Cookie[] cookies = req.getCookies();
 			if (cookies == null || cookies.length == 0) {
 				// 没有cookie
-				if (req.getRequestURI().endsWith("person.html")) {
-					chain.doFilter(request, response);
+				if (filterUrl.indexOf(url) > -1) {
+					System.out.println("转至登录界面");
 					res.sendRedirect("login.html");
 					return;
 				}
@@ -89,17 +91,17 @@ public class AutoLoginFilter implements Filter {
 						if (uid != null) {
 							// 返回的uid不为空，说明用户名和密码正确，可以登录
 							req.getSession().setAttribute("uid", uid);
+							req.getSession().setAttribute("username", username);
 							// 登录后
-							if (req.getRequestURI().endsWith("login.html")) {
-								chain.doFilter(request, response);
-								res.sendRedirect("home.html");
+							if (url.equals("login.html")) {
+								res.sendRedirect("/");
 								return;
 							}
 						}
 					}
 				} else {
-					if (req.getRequestURI().endsWith("person.html")) {
-						chain.doFilter(request, response);
+					if (filterUrl.indexOf(url) > -1) {
+						System.out.println("转至登录界面");
 						res.sendRedirect("login.html");
 						return;
 					}

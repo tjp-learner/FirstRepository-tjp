@@ -32,7 +32,7 @@ public class GetImgServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("image/png");
-		String uid = (String) request.getSession().getAttribute("uid");
+		String uid = request.getParameter("uid");
 		String fileName = uid + "-head.png";
 		String url = "D:/MyProgram/blog/WebContent/head-img/" + fileName;
 		InputStream in = new FileInputStream(url);

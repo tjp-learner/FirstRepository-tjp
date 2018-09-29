@@ -40,35 +40,51 @@ h3 {
 }
 
 .login-part
+
  
+
 input
+
+
 :not
+
  
+
 (
 [
 type
 =
 checkbox
 ]
+
  
+
 )
 {
 height
+
+
 :
+
  
+
 50
 px
-;
 
-	
+
+;
 font-size
+
+
 :
+
  
+
 20
 px
+
+
 ;
-
-
 }
 .login-part .form-group {
 	margin: 35px 0;

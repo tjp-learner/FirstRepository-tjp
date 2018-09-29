@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="css/login.css" />
 		<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
-		<title>学且思博客登录</title>
+		<title>学而思博客登录</title>
 	</head>
 	<body>
 		<div class="container">
@@ -31,7 +31,7 @@
 								<div class="input-group-addon">
 									<span class="glyphicon glyphicon-user"></span>
 								</div>
-								<input type="text" id="username" placeholder="用户名" name="username" required class="form-control input-lg" value="${requestScope.username }"/> </div>
+								<input type="text" id="username" placeholder="用户名" name="username" autocomplete="off" required class="form-control input-lg" value="${requestScope.username }"/> </div>
 						</div>
 						<div class="form-group">
 							<div class="input-group">
@@ -46,7 +46,7 @@
 								<div class="input-group-addon">
 									<span class="glyphicon glyphicon-record"></span>
 								</div>
-								<input type="text" id="ver-code" placeholder="验证码" required name="ver-code" class="form-control input-lg" />
+								<input type="text" id="ver-code" placeholder="验证码" autocomplete="off" required name="ver-code" class="form-control input-lg" />
 								<div class="input-group-addon" style="padding: 0;">
 									<img src="" alt="yanzhenma" id="code-img" width="50px" />
 								</div>
@@ -72,7 +72,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<input type="submit" class="form-control btn btn-primary btn-lg" value="登录" />
+							<input type="submit" class="form-control btn btn-primary btn-lg" value="登 录" style="padding: 5px 16px;"/>
 						</div>
 					</form>
 					<div class="row">
@@ -87,25 +87,25 @@
 				<hr /> </div>
 			<div class="row footer">
 				<div class="col-xs-1">
-					<a href="javascritp:void(0)" target="_blank">公司简介 | </a>
+					<a href="javascript:void(0)" target="_blank">公司简介 | </a>
 				</div>
 				<div class="col-xs-1">
-					<a href="javascritp:void(0)" target="_blank">招纳贤士 | </a>
+					<a href="javascript:void(0)" target="_blank">招纳贤士 | </a>
 				</div>
 				<div class="col-xs-1">
-					<a href="javascritp:void(0)" target="_blank">广告服务 | </a>
+					<a href="javascript:void(0)" target="_blank">广告服务 | </a>
 				</div>
 				<div class="col-xs-1">
-					<a href="javascritp:void(0)" target="_blank">公司简介 | </a>
+					<a href="javascript:void(0)" target="_blank">公司简介 | </a>
 				</div>
 				<div class="col-xs-1">
-					<a href="javascritp:void(0)" target="_blank">博客咨询 | </a>
+					<a href="javascript:void(0)" target="_blank">博客咨询 | </a>
 				</div>
 				<div class="col-xs-1">
-					<a href="javascritp:void(0)" target="_blank">文章发布 | </a>
+					<a href="javascript:void(0)" target="_blank">文章发布 | </a>
 				</div>
 				<div class="col-xs-1">
-					<a href="javascritp:void(0)" target="_blank">公司简介</a>
+					<a href="/blog" target="_blank">博客主页</a>
 				</div>
 			</div>
 		</div>

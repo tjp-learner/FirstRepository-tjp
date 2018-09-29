@@ -5,10 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
-import com.tjp.domain.JDBCUtil;
 import com.tjp.domain.User;
+import com.tjp.util.JDBCUtil;
 
 public class UserDao {
 
@@ -116,34 +119,13 @@ public class UserDao {
 			if (rs.next()) {
 				String uid = rs.getString(1);
 				return uid;
-			} 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			JDBCUtil.close(rs, ps, con);
-		}
-		return null;
-	}
-	
-	public boolean hasUser(String username) {
-		String sql = "select * from user where username=?";
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		con = JDBCUtil.getConnection();
-		try {
-			ps = con.prepareStatement(sql);
-			ps.setString(1, username);
-			rs = ps.executeQuery();
-			if (rs.next()) {
-				return true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.close(rs, ps, con);
 		}
-		return false;
+		return null;
 	}
 
 	public User getUserById(String uid) {
@@ -156,6 +138,7 @@ public class UserDao {
 			rs = sts.executeQuery(sql);
 			if (rs.next()) {
 				User user = new User();
+				user.setUid(uid);
 				user.setUsername(rs.getNString("username"));
 				user.setEmail(rs.getNString("email"));
 				user.setPhone(rs.getNString("phone"));
@@ -188,5 +171,52 @@ public class UserDao {
 		} finally {
 			JDBCUtil.close(rs, sts, con);
 		}
+	}
+
+	public void updateUserInfo(String uid, Map<String, String> userinfo) {
+		String sql = "update user set truename=?,sex=?,birthday=?,location=?,job=?,email=?,phone=? where uid='" + uid
+				+ "'";
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		con = JDBCUtil.getConnection();
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, userinfo.get("truename"));
+			ps.setString(2, userinfo.get("sex"));
+			ps.setString(3, userinfo.get("birthday"));
+			ps.setString(4, userinfo.get("location"));
+			ps.setString(5, userinfo.get("job"));
+			ps.setString(6, userinfo.get("email"));
+			ps.setString(7, userinfo.get("phone"));
+			if (ps.executeUpdate() != 1) {
+				throw new RuntimeException("插入数据错误");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, ps, con);
+		}
+	}
+
+	public List<User> getFocusUsers(String uid) {
+		String sql = "select befocus from attention where focus = '" + uid + "'";
+		Connection con = null;
+		Statement sts = null;
+		ResultSet rs = null;
+		con = JDBCUtil.getConnection();
+		List<User> focus_list = new ArrayList<>();
+		try {
+			sts = con.createStatement();
+			rs = sts.executeQuery(sql);
+			while (rs.next()) {
+				String user_id = rs.getString(1);
+				// 查这些用户的信息，包括image和username
+				focus_list.add(getUserById(user_id));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return focus_list;
 	}
 }

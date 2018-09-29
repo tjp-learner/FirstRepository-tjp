@@ -54,6 +54,7 @@ ul {
 }
 
 .aside-nav a {
+	margin-top: 1px;
 	display: block;
 	width: 180px;
 	height: 35px;
@@ -62,7 +63,10 @@ ul {
 	color: #4d4d4d;
 	padding-left: 10px;
 }
-
+.current a {
+	background-color: pink;
+	color: red;
+}
 .aside-nav a:hover {
 	background-color: pink;
 	color: red;

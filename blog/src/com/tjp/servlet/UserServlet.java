@@ -65,16 +65,11 @@ public class UserServlet extends HttpServlet {
 				request.getRequestDispatcher("login.html").forward(request, response);
 				return;
 			}
-			boolean hasUser = dao.hasUser(username);
-			if (!hasUser) {
-				request.setAttribute("login_msg", "用户名不存在");
-				request.getRequestDispatcher("login.html").forward(request, response);
-				return;
-			}
 			uid = dao.userLogin(username, password);
 			if (uid != null) {
 				//当uid不为空，那么表示用户名和密码正确，可以登录
 				request.getSession().setAttribute("uid", uid);
+				request.getSession().setAttribute("username", username);
 				//此时，要处理自动登录
 				String[] value = request.getParameterValues("autologin");
 				if (value != null && value.length == 1) {

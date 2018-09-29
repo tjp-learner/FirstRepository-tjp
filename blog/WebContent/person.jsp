@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="zh">
 	<head>
@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="css/person.css" />
 		<script src="js/person.js" type="text/javascript" charset="utf-8"></script>
-		<title>个人主页-学且思博客</title>
+		<title>个人主页-学而思博客</title>
 	</head>
 	<body>
 		<div id="modifyInfo-bg">
@@ -19,9 +19,9 @@
 					<p>资料修改</p>
 					<span id="modifyInfo-close" class="glyphicon glyphicon-remove"></span>
 				</div>
-				<div class="container">
+				<div id="modifyInfo-input" class="container">
 					<div class="row">
-						实名：<input type="text" id="truename"/>
+						实名：<input type="text" autocomplete="off" id="truename"/>
 					</div>
 					<div class="row">
 						性别：<select id="sex">
@@ -33,16 +33,16 @@
 						生日：<input type="date" id="birthday"/>
 					</div>
 					<div class="row">
-						地区：<input type="text" id="location"/>
+						地区：<input type="text" autocomplete="off" id="location"/>
 					</div>
 					<div class="row">
-						职业：<input type="text" id="job"/>
+						职业：<input type="text" autocomplete="off" id="job"/>
 					</div>
 					<div class="row">
-						邮箱：<input type="email" id="email"/>
+						邮箱：<input type="email" autocomplete="off" id="email"/>
 					</div>
 					<div class="row">
-						手机：<input type="phone" id="phone" />
+						手机：<input type="phone" autocomplete="off" id="phone" />
 					</div>
 					<div class="row info-btn">
 						<button class="btn btn-primary" id="confirm-info">确认</button>
@@ -77,13 +77,13 @@
 			<div class="row">
 				<div class="col-md-4 col-md-offset-1">
 					<h1>
-						<a href="home.html">学且思博客</a>
+						<a href="home.html">学而思博客</a>
 					</h1>
 				</div>
 				<div class="col-md-5 col-md-offset-2">
 					<ul class="top-nav">
 						<li>
-							<a href="home.html">首页</a>
+							<a href="/blog">首页</a>
 							<span>|</span>
 						</li>
 						<li>
@@ -91,7 +91,7 @@
 							<span>|</span>
 						</li>
 						<li>
-							<a href="#">我的博客</a>
+							<a href="myblog-data.html?get=all">我的博客</a>
 							<span>|</span>
 						</li>
 						<li>
@@ -100,7 +100,7 @@
 						</li>
 						<li>
 							<a href="person.html">
-								<span class="glyphicon glyphicon-home"></span> ${user.username }</a>
+								<span class="glyphicon glyphicon-home"></span> ${sessionScope.username }</a>
 						</li>
 					</ul>
 				</div>
@@ -110,20 +110,20 @@
 			<div class="row">
 				<div class="col-md-2 col-md-offset-1 aside-nav">
 					<ul>
-						<li>
+						<li class="current">
 							<a href="person.html">个人资料</a>
 						</li>
 						<li>
 							<a href="#">我的收藏</a>
 						</li>
 						<li>
-							<a href="#">我的关注</a>
+							<a href="GetFocusServlet">我的关注</a>
 						</li>
 						<li>
 							<a href="#">我的粉丝</a>
 						</li>
 						<li>
-							<a href="#">我的博客</a>
+							<a href="myblog-data.html?get=all">我的博客</a>
 						</li>
 					</ul>
 				</div>
@@ -139,14 +139,14 @@
 								if (image == null || image == ""){
 									$("#head-img").attr("src", "images/no-upload.jpg");
 								} else {
-									$("#head-img").attr("src", "getImage");
+									$("#head-img").attr("src", "getImage?uid=${sessionScope.uid }");
 								}
 							</script>
 							<button id="upload-img" class="btn btn-primary"> 修 改 头 像 </button>
 						</div>
 						<div class="col-md-6 img-side">
 							<h1>
-								<a href="person.html">${user.username }</a>
+								<a href="person.html">${sessionScope.username }</a>
 							</h1>
 							<div class="focus">
 								<div class="data-left">
@@ -166,17 +166,17 @@
 			</div>
 			<div class="row">
 				<div class="col-md-7 col-md-offset-3 personInfo">
-					<div>用户名：${user.username }</div>
-					<div id="truename-info">实名：${user.truename }</div>
-					<div id="sex-info">性别：${user.sex }</div>
-					<div id="birthday-info">生日：${user.birthday }</div>
-					<div id="location-info">地区：${user.location }</div>
-					<div id="job-info">职业：${user.job }</div>
-					<div id="email-info">邮箱：${user.email }</div>
-					<div id="phone-info">手机：${user.phone }</div>
+					<div>用户名：${requestScope.user.username }</div>
+					<div id="truename-info">实名：${requestScope.user.truename }</div>
+					<div id="sex-info">性别：${requestScope.user.sex }</div>
+					<div id="birthday-info">生日：${requestScope.user.birthday }</div>
+					<div id="location-info">地区：${requestScope.user.location }</div>
+					<div id="job-info">职业：${requestScope.user.job }</div>
+					<div id="email-info">邮箱：${requestScope.user.email }</div>
+					<div id="phone-info">手机：${requestScope.user.phone }</div>
 				</div>
 				<div class="col-md-1">
-					<button class="btn btn-primary"> 修 改 资 料</button>
+					<button id="modifyInfo-btn" class="btn btn-primary"> 修 改 资 料</button>
 				</div>
 			</div>
 		</div>

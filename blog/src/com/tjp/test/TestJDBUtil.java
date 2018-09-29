@@ -2,7 +2,7 @@ package com.tjp.test;
 
 import org.junit.jupiter.api.Test;
 
-import com.tjp.domain.JDBCUtil;
+import com.tjp.util.JDBCUtil;
 
 public class TestJDBUtil {
 
