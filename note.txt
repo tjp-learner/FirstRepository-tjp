@@ -11,3 +11,4 @@ git checkout -- file 其实是用版本库里的文件，替换工作区的文�
 手动删除文件，那么确认删除就用git rm file再加上git commit
 删除文件可以直接git rm file，这样文件夹里的文件自动删除，然后commit就行了
 只要git rm file后，想恢复就只能用版本回退了
+2019/10/21
